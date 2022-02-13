@@ -49,3 +49,23 @@ const HelloPromise = () =>{
 HelloPromise()
     .then(response => { console.log(response)})
     .catch(error => {console.log(error)})
+
+    // 5 se ven clases en js 
+    
+    class calculaciones{
+        constructor()
+        {
+            this.valor1 = 0;
+            this.valor2 = 0;
+        }
+
+         sum (valor1,valor2){
+             this.valor1 = valor1;
+             this.valor2 = valor2;
+            return this.valor1 + this.valor2;
+        }
+
+    }
+
+    const sumatoria = new calculaciones();
+    console.log(sumatoria.sum(2,6));
