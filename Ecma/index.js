@@ -27,3 +27,25 @@ prueba = "le cambio el valor afuera a var";
 const prueba3 = "valor de la constante";
 prueba3 = "le cambie el valor a la constante";
 console.log(prueba3);
+// 3 cuando le voy  a asignar un valor a un objeto esta y la propiedad se llama como el valor
+//no es necesario colocarlo ejem
+
+let obj = {
+    name,
+    age
+} 
+console.log(obj)
+
+const HelloPromise = () =>{
+    return new Promise((resolve,reject) => {
+        if(false){
+            resolve("todo fino pana")
+        }else{
+            reject("nada todo mal ");
+        }
+    })
+}
+
+HelloPromise()
+    .then(response => { console.log(response)})
+    .catch(error => {console.log(error)})
