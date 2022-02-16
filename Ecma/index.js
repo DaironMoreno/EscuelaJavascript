@@ -69,3 +69,61 @@ HelloPromise()
 
     const sumatoria = new calculaciones();
     console.log(sumatoria.sum(2,6));
+
+    // 6 ES 7 se agrego el metodo includes para buscar algo en un array
+
+    let arr = [1,2,3,4,5];
+    let busqueda = arr.includes(6);
+    if(busqueda)
+    {
+        console.log("si esta")
+    }else {
+        console.log(" no esta")
+
+    }
+    // 7 ES8 se agrego async - await y object.entries y object.values
+    //object.entries me crea un array con arrays por cada par de un objeto
+    let data = {
+        'name': 'dairon',
+        'apellido' : 'moreno',
+        'ciudad' : 'Barrio de la boca'
+    }
+
+    const entries = Object.entries(data);
+    console.log(entries);
+    //object.values me crea un array con los valores de un objeto
+    let data = {
+        'name': 'dairon',
+        'apellido' : 'moreno',
+        'ciudad' : 'Barrio de la boca'
+    }
+    const values = Object.values(data);
+    console.log(values);
+    // async - await
+
+    const helloWord =  () => {
+        return new Promise((resolve,reject) => {
+            (true)
+                ? setTimeout(() => resolve('Todo fino pana'),3000 )
+                : reject(new Error('Error nada mas'))
+        });
+    }
+
+    let helloAsync = async () => {
+        const saludar = await helloWord();
+        console.log(saludar);
+    }
+
+    helloAsync();
+
+    const anotherFunction = async () => {
+        try {
+            const hello = await helloWord();
+            console.log(hello)
+        } catch (error) {
+            console.log(error)
+            
+        }
+    }
+
+    anotherFunction();
