@@ -127,3 +127,8 @@ HelloPromise()
     }
 
     anotherFunction();
+
+    // 10 Es10 podemos convertir de array a objetos
+
+    const entries = [["name","dairon"]]
+    console.log(Object.fromEntries(entries));
