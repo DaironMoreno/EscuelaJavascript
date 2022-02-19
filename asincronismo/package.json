@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "callback:challenge" : "node src/callback/challenge.js"
+    "callback:challenge" : "node src/callback/challenge.js",
+    "promise" : "node src/promesas/index.js",
+    "promise:challenge1" : "node src/promesas/challenge1.js",
+    "promise:challenge" : "node src/promesas/challenge.js"
+
   },
   "author": "",
   "license": "MIT",
