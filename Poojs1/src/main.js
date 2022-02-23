@@ -1,22 +1,73 @@
+class cursos
+{
+    constructor({
+        name,
+        clases = []
+    }){
+        this.name = name;
+        this.clases = clases;
+    }
+}
 class RutadeAprendizaje
 {
     constructor({
         name,
         teacher,
-        clases = []
+        cursos = []
     }){
-        this.name = name;
+        this._name = name;
         this.teacher = teacher;
-        this.clases = clases;
+        this.cursos = cursos;
     }
-
-    AgregarRuta(name,teacher,clases){
-        this.name = name;
-        this.teacher = teacher;
-        this.clases.push(clases)
+    get name()
+    {
+        return this._name;
+    }
+    set name(nuevoNombre)
+    {
+        if(nuevoNombre === "un nombre malo")
+        {
+            console.warn("epa porque escribe eso");
+        }else{
+            this._name = nuevoNombre;
+        }
     }
 }
 
+let HtmlBasico = new cursos({
+    name: "Curso de Html básico",
+    clases: ['Js Basico',
+            'clase 2',
+            'clase 3',
+            'clase 4',
+            'clase 5',]
+})
+let jsBasico = new cursos({
+    name: "Curso de js básico",
+    clases: ['Js Basico',
+            'clase 2',
+            'clase 3',
+            'clase 4',
+            'clase 5',]
+})
+let CssBasico = new cursos({
+    name: "Curso de css básico",
+    clases: ['css Basico',
+            'clase 2',
+            'clase 3',
+            'clase 4',
+            'clase 5',]
+})
+
+let escuelaWeb = new RutadeAprendizaje({
+    name : "Escuela de desarrollo web",
+    teacher: "Gala",
+    cursos : [
+        HtmlBasico,
+        CssBasico,
+        jsBasico
+    ]
+})
 class student{
     constructor({
         name,
@@ -51,17 +102,10 @@ const vanesa = new student({
     age: 30,
     email: 'vanesa@vanesa.com',
     twitter: 'vanesa_twitter',
-    RutasInscritas : [new RutadeAprendizaje({
-        name:'ruta de Javascript',
-        teacher: 'luciano moreno',
-        clases : [
-            'clase 1',
-            'clase 2',
-            'clase 3',
-            'clase 4',
-            'clase 5',
-        ]
-    })]
+    RutasInscritas : [
+        HtmlBasico,
+        jsBasico
+    ]
 })
 
 const dairon = new student({
@@ -69,15 +113,8 @@ const dairon = new student({
     age: 30,
     email: 'dairon@dairon.com',
     twitter: 'dairon_twitter',
-    RutasInscritas : [new RutadeAprendizaje({
-        name:' ruta de php',
-        teacher: 'Roman Riquelme',
-        clases : [
-            'clase php introduccion',
-            'clase 2',
-            'clase 3',
-            'clase 4',
-            'clase 5',
-        ]
-    })]
+    RutasInscritas : [
+        CssBasico,
+        jsBasico
+    ]
 })
