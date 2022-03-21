@@ -21,24 +21,36 @@ let agregarTarea = () =>{
 
 
 const task = document.getElementById('task');
+const lista = document.createElement('ul');
+lista.style.listStyleType = 'none';
+let itemList = document.createElement('li');
+task.appendChild(lista);
+itemList.textContent = `No hay tareas agregadas`;
+let img = document.createElement('img');
+img.src="../src/img/loading-cargando.gif";
+img.className = 'Gifimage';
+lista.appendChild(itemList);
 
 
 const taskFunction =  () => {
-    return new Promise (() => {
+    
+    return new Promise ((resolve,reject) => {
         
         const arrTask = agregarTarea();
-        const lista = document.createElement('ul');
-        lista.style.listStyleType = 'none';
-        let itemList = document.createElement('li');
-        
-        if(arrTask.length  == 0){
-            lista.innerHTML = `<li>No hay tareas agregadas -  Borrar  entrada : <input type='checkbox' checked='checked' } /> ?</li>`;
+        if(arrTask.length == 0){
+            reject(new Error('Error logico'));
         }else{
-            arrTask.forEach(item => {
-                lista.innerHTML += `<li>Tarea: ${item} - Status: <input type='checkbox' ${item.status ? 'checked' : ''} /> </li>`;
-            })
+            itemList.className = 'esconder';
+            lista.replaceChild(img, itemList);
+            setTimeout(() => {
+                img.className  = 'esconder';
+                resolve(arrTask.forEach(item => {
+                    lista.innerHTML += `<li>Tarea: ${item} - Status: <input type='checkbox' ${item.status ? 'checked' : ''} /> </li>`;
+                }) )
+            },1000);
+            task.appendChild(lista); 
+            
         }
-        task.appendChild(lista);
         return task;
 
     });

@@ -4,6 +4,17 @@ class myElement extends HTMLElement{
         this.attachShadow({mode: "open"});
          this.titulo =  this.getAttribute('titulo')
          this.parrafo =  this.getAttribute('parrafo')
+        }
+    static get observedAttributes(){
+        return ["titulo","parrafo"];
+    }
+    attributeChangedCallback(attr,oldVal,newVal){
+        if(attr === "titulo"){
+            this.titulo = newVal;
+        }
+        if(attr === "parrafo"){
+            this.parrafo = newVal;
+        }
     }
     getTemplate(){
         const template = document.createElement('template');

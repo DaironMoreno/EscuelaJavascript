@@ -42,3 +42,11 @@
     padding: 0px 20px ;
     place-self: center;
 }
+.esconder{
+   display: none;
+
+}
+.Gifimage{
+    width: 48px;
+    height: 48px;
+} 
